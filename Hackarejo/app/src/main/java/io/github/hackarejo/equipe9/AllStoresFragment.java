@@ -44,7 +44,7 @@ public class AllStoresFragment extends Fragment {
 
         stores.add(store);
 
-        ListAdapter myStoresAdapter = new MyStoresAdapter(getActivity().getApplicationContext(), stores);
+        ListAdapter myStoresAdapter = new AllStoresAdapter(getActivity().getApplicationContext(), stores);
 
         listAllStores.setAdapter(myStoresAdapter);
     }
