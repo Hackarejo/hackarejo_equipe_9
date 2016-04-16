@@ -5,6 +5,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg1"
+        android:src="@drawable/splash_bg"
         android:scaleType="centerCrop"/>
 </RelativeLayout>
