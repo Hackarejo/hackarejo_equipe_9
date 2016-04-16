@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/login_bg"
+    tools:context="io.github.hackarejo.equipe9.LoginActivity">
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/LayoutTop"
+        android:layout_marginBottom="1dp"
+        android:gravity="bottom">
+
+        <TextView
+            android:id="@+id/lblUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/lblUser"
+            android:layout_marginTop="5dp"
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/txtUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/lblUser"
+            android:inputType="number"
+            />
+
+        <TextView
+            android:id="@+id/lblPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/lblPassword"
+            android:layout_below="@+id/txtUser"
+            android:layout_marginTop="5dp"
+            android:textColor="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/txtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/lblPassword"
+            android:inputType="textPassword"
+            />
+
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/LayoutFooter"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/txtPassword">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/desc_login"
+                android:id="@+id/buttonLogin"
+                android:layout_alignLeft="@+id/buttonRegister"
+                android:layout_alignParentRight="true"
+                />
+
+            <Button
+                android:id="@+id/buttonRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/desc_register"
+                android:layout_below="@+id/buttonLogin"
+                android:layout_alignParentLeft="@+id/buttonLogin" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
