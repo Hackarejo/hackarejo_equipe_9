@@ -13,10 +13,10 @@
     <%= f.input :password, required: true %>
     <%= f.input :password_confirmation, required: true %>
 
-    <%= radio_button_tag :userable, "client" %>
+    <%= radio_button_tag :user_type, "client" %>
     <%= label_tag :userable_client, "Cliente" %>
 
-    <%= radio_button_tag :userable, "manager" %>
+    <%= radio_button_tag :user_type, "manager" %>
     <%= label_tag :userable_manager, "Lojista" %>
   </div>
 

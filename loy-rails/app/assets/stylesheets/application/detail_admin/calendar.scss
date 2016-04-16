@@ -1,0 +1,142 @@
+#calendar {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: -10px;
+
+  .fc-button {
+    margin-bottom: 1em;
+    vertical-align: top;
+    height: 29px;
+  }
+
+  .fc-today {
+    color: #d31919;
+  }
+
+  .fc-content {
+    font-size: 12px;
+  }
+
+  .fc-state-down, .fc-state-active, .fc-state-disabled {
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(0,0,0,0.2) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2) inset;
+    color: #a8b5c7 !important;
+  }
+
+  .fc-state-default {
+    font-size: 12px;
+    font-family: "Open sans", Helvetica, Arial;
+    color: #313d4c;
+    font-weight: 700;
+    padding: 2px 10px;
+    background: #fefefe;
+    background: -moz-linear-gradient(top, #fefefe 0%, #f7f7f7 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(100%,#f7f7f7));
+    background: -webkit-linear-gradient(top, #fefefe 0%,#f7f7f7 100%);
+    background: -o-linear-gradient(top, #fefefe 0%,#f7f7f7 100%);
+    background: -ms-linear-gradient(top, #fefefe 0%,#f7f7f7 100%);
+    background: linear-gradient(to bottom, #fefefe 0%,#f7f7f7 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#f7f7f7',GradientType=0  );
+    border: 1px solid #d0dde9;
+    transition: color .1s linear;
+    -moz-transition: color .1s linear;
+    -webkit-transition: color .1s linear;
+    -o-transition: color .1s linear;
+  }
+}
+
+.calendar-wrapper {
+	position: relative;
+
+	/* calendar-wrapper popup */
+	.popup {
+		position: absolute;
+		background: #fff;
+		text-align: left;
+		width: 300px;
+		border: 1px solid rgb(178, 180, 182);
+		box-shadow: 0px 0px 7px -1px rgba(0, 0, 0, 0.35);
+		border-radius: 4px;
+		padding: 14px 20px 14px 20px;
+		z-index: 999;
+		left: 635px;
+		top: 50px;
+		h5 {
+			text-transform: uppercase;
+			font-weight: 600;
+			margin: 0 0 21px 0;
+			font-size: 14px;
+			color: #7e91aa;
+		}
+		.field {
+			margin-bottom: 7px;
+			.date {
+				margin-left: 15px;
+			}
+			.event-input {
+				position: relative;
+				top: 5px;
+				margin-left: 10px;
+				width: 75%;
+				display: inline-block;
+			}
+		}
+		input[type="submit"]{
+			float: right;
+			margin-right: 15px;
+			margin-top: 15px;
+		}
+		i.close-pop{
+			position: absolute;
+			right: 11px;
+			cursor: pointer;
+			top: 12px;
+			opacity: 0.6;
+
+			transition: opacity .1s linear;
+			-moz-transition: opacity .1s linear;
+			-webkit-transition: opacity .1s linear;
+			-o-transition: opacity .1s linear;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+		.pointer {
+			position: absolute;
+			bottom: 0;
+			left: 46%;
+			.arrow,
+			.arrow_border {
+				border-color: #fff transparent transparent transparent;
+				border-width: 11px;
+				border-style: solid;
+				font-size: 0;
+				left: 50%;
+				line-height: 0;
+				margin: 0 auto;
+				position: absolute;
+				top: 0;
+				width: 0;
+				z-index: 1002;
+				left: 0;
+				margin-left: 45%;
+			}
+			.arrow_border {
+				border-color: rgb(136, 136, 136) transparent transparent transparent;
+				border-width: 12px;
+				margin-left: -1px;
+				border-style: solid;
+				z-index: 1001;
+				top: 0px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.calendar-wrapper .popup {
+		display: none;
+	}
+}

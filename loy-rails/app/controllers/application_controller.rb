@@ -30,12 +30,6 @@ class ApplicationController < ActionController::Base
   end
 
   #
-  # After sign in path for resource
-  #
-  def after_sign_in_path_for(resource)
-  end
-
-  #
   # Verify access
   #
   def verify_access!
