@@ -11,6 +11,9 @@ import retrofit.http.POST;
  */
 public interface Api {
 
-    @POST("/users/sign_up")
+    @POST("/entrar.json")
     public void login(@Field("email") String email, @Field("password") String password, Callback<User> userCallback);
+
+    @POST("/users/cadastro.json")
+    public void register(@Field("name") String name,@Field("email") String email, @Field("password") String password, Callback<User> userCallback);
 }
