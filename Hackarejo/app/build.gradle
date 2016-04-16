@@ -44,4 +44,5 @@ dependencies {
     compile 'commons-io:commons-io:2.4'
     compile 'org.projectlombok:lombok:1.16.6'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.android.support:cardview-v7:23.3.0'
 }
