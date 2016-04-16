@@ -13,35 +13,34 @@ import lombok.Setter;
  */
 public class Client implements Serializable {
 
-@Getter
-@Setter
-@Expose
-private int id;
+    @Getter
+    @Setter
+    @Expose
+    private int id;
 
-@Getter
-@Setter
-@Expose
-private String name;
+    @Getter
+    @Setter
+    @Expose
+    private String name;
 
-@Getter
-@Setter
-@Expose
-private String cpf;
+    @Getter
+    @Setter
+    @Expose
+    private String cpf;
 
-@Getter
-@Setter
-@Expose
-private String email;
+    @Getter
+    @Setter
+    @Expose
+    private String email;
 
-@Getter
-@Setter
-@Expose
-private String password;
+    @Getter
+    @Setter
+    @Expose
+    private String password;
 
-@Getter
-@Setter
-@Expose
-private String status;
-
+    @Getter
+    @Setter
+    @Expose
+    private String status;
 
 }
