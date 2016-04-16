@@ -84,4 +84,13 @@ class ApplicationController < ActionController::Base
 
     return start_date, end_date
   end
+
+  #
+  # Configure permitted parameters
+  #
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_in).push(:name)
+    devise_parameter_sanitizer.for(:sign_up).push(:name)
+    devise_parameter_sanitizer.for(:account_update).push(:name)
+  end
 end

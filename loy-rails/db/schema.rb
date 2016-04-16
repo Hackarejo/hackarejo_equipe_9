@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416170235) do
+ActiveRecord::Schema.define(version: 20160416195137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,17 @@ ActiveRecord::Schema.define(version: 20160416170235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "credits", force: :cascade do |t|
+    t.integer  "client_id"
+    t.integer  "shop_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "credits", ["client_id"], name: "index_credits_on_client_id", using: :btree
+  add_index "credits", ["shop_id"], name: "index_credits_on_shop_id", using: :btree
 
   create_table "managers", force: :cascade do |t|
     t.string   "name"
@@ -71,5 +82,19 @@ ActiveRecord::Schema.define(version: 20160416170235) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["userable_type", "userable_id"], name: "index_users_on_userable_type_and_userable_id", using: :btree
 
+  create_table "visits", force: :cascade do |t|
+    t.integer  "client_id"
+    t.integer  "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "visits", ["client_id"], name: "index_visits_on_client_id", using: :btree
+  add_index "visits", ["shop_id"], name: "index_visits_on_shop_id", using: :btree
+
+  add_foreign_key "credits", "clients"
+  add_foreign_key "credits", "shops"
   add_foreign_key "managers", "shops"
+  add_foreign_key "visits", "clients"
+  add_foreign_key "visits", "shops"
 end
