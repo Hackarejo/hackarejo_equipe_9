@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
 import io.github.hackarejo.equipe9.util.ConectWifi;
 import io.github.hackarejo.equipe9.util.GeneratedAlert;
+import io.github.hackarejo.equipe9.util.UserPreferences;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,17 +26,26 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                redirectTo();
             }
         }, 3000);
 
         GeneratedAlert alert = new GeneratedAlert(this);
         alert.getAlert();
-
+    }
 //        ConectWifi connect = new ConectWifi(this);
 //        connect.setConnection();
 
+    public void redirectTo() {
+        UserPreferences userPreferences = new UserPreferences(getApplicationContext());
+        Intent intent;
+
+        if (userPreferences.isLogged()) {
+            intent = new Intent(MainActivity.this, HomeActivity.class);
+        } else {
+            intent = new Intent(MainActivity.this, LoginActivity.class);
+        }
+        startActivity(intent);
+        finish();
     }
 }

@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
             client.setCpf(edtCpf.getText().toString());
             client.setPassword(edtPassword.getText().toString());
             client.setStatus("S");
-            
+
         } else {
             Toast.makeText(RegisterActivity.this,"A Confirmação da Senha está Divergente",Toast.LENGTH_LONG).show();
         }

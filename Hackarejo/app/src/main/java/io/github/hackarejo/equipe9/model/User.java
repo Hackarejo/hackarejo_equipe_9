@@ -40,6 +40,14 @@ public class User implements Serializable {
     @Setter
     @Expose
     private Store store;
+    @Getter
+    @Setter
+    @Expose
+    private String accessToken;
 
-
+    public User(Preference preference){
+        this.name = preference.getName();
+        this.email = preference.getEmail();
+        this.accessToken = preference.getKey();
+    }
 }

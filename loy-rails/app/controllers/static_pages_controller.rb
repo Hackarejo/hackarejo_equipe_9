@@ -1,7 +1,12 @@
 class StaticPagesController < ApplicationController
   skip_authorization_check
 
+  # GET /index
   def index
-    @title = "Fidelis"
+    if user_signed_in?
+      # TODO
+    else
+      @title = "Fidelis"
+    end
   end
 end
