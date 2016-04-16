@@ -1,14 +1,37 @@
+<% @title ||= "Fidelis" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LoyRails</title>
+  <title><%= @title %></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'print', media: 'print' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag %>
 </head>
 <body>
 
-<%= yield %>
+  <%= render "application/header" %>
+  <%= render "application/sidebar" %>
 
+  <div class="content">
+    <%= yield :header_stats if content_for?(:header_stats) %>
+
+    <div id="header-margin"><!-- Header margin only --></div>
+    <%= render "application/flash" %>
+
+    <div id="pad-wrapper">
+      <%= yield %>
+    </div>
+  </div>
 </body>
+
 </html>

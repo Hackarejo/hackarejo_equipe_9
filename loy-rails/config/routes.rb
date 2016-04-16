@@ -1,9 +1,24 @@
 Rails.application.routes.draw do
+  resources :managers
+  resources :shops
+  resources :clients
+
+  devise_for :users,
+    controllers: {
+      registrations: "users/registrations"
+    },
+    path: "",
+    path_names: {
+      sign_in: "entrar",
+      sign_out: "sair",
+      sign_up: "cadastrar"
+    }
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'static_pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

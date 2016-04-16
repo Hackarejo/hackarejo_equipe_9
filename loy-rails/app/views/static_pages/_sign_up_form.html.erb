@@ -1,0 +1,30 @@
+<% show_links = defined?(show_links) ? show_links : false %>
+
+<%= simple_form_for(
+  resource,
+  as: resource_name,
+  url: registration_path(resource_name),
+  html: { class: "form-horizontal" }
+  ) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :name, required: true %>
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, required: true %>
+    <%= f.input :password_confirmation, required: true %>
+
+    <%= radio_button_tag :userable, "client" %>
+    <%= label_tag :userable_client, "Cliente" %>
+
+    <%= radio_button_tag :userable, "manager" %>
+    <%= label_tag :userable_manager, "Lojista" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Experimente Grátis!", class: "btn btn-lg btn-call-to-action btn-submit" %>
+  </div>
+<% end %>
+
+<% if show_links %>
+  <%= render "devise/shared/links" %>
+<% end %>
