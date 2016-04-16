@@ -1,24 +1,21 @@
 package io.github.hackarejo.equipe9;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import io.github.hackarejo.equipe9.model.User;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -85,21 +82,41 @@ public class HomeActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Log.i("Drawer", "Pegou o evento no id: " + id);
+        Fragment fragment;
 
-        switch (id){
+        String actionBarTitle;
+        switch (id) {
             case R.id.nav_all_stores:
+                fragment = new AllStoresFragment();
+                actionBarTitle = "Todas as lojas";
                 break;
             case R.id.nav_my_stores:
+                actionBarTitle = "Minhas lojas";
+                fragment = new MyStoresFragment();
                 break;
             case R.id.nav_offers:
+                actionBarTitle = "Promoções";
+                fragment = new MyPromotionsFragment();
                 break;
             case R.id.nav_exit:
+                actionBarTitle = "Sair";
+                fragment = new MyStoresFragment();
+                break;
+            default:
+                actionBarTitle = "Minhas lojas";
+                fragment = new MyStoresFragment();
                 break;
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        getSupportActionBar().setTitle(actionBarTitle);
+
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.home_fragment_container, fragment);
+        ft.commit();
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
