@@ -10,11 +10,11 @@ import io.github.hackarejo.equipe9.model.Client;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText edtName;
-    EditText edtEmail;
-    EditText edtCpf;
-    EditText edtPassword;
-    EditText edtConfirmPassword;
+    public EditText edtName;
+    public EditText edtEmail;
+    public EditText edtCpf;
+    public EditText edtPassword;
+    public EditText edtConfirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
         edtName = (EditText) findViewById(R.id.txtName);
         edtCpf = (EditText) findViewById(R.id.txtCpf);
         edtEmail = (EditText) findViewById(R.id.txtEmail);
-        edtPassword = (EditText) findViewById(R.id.txtPassword);
+        edtPassword = (EditText) findViewById(R.id.txtRPassword);
         edtConfirmPassword = (EditText) findViewById(R.id.txtCPassword);
 
     }

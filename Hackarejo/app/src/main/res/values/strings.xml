@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Equipe 9</string>
+    <string name="app_name">Fidelis</string>
     <string name="title_activity_home">Home</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_register">Registrar-se</string>
