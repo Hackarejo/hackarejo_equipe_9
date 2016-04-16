@@ -6,8 +6,7 @@ RSpec.describe Users::RegistrationsController, type: :controller do
     name: "New User Name",
     email: "newemail@test.com",
     password: "abc123456",
-    password_confirmation: "abc123456",
-    userable: userable
+    password_confirmation: "abc123456"
   }}
 
   before {
@@ -15,24 +14,37 @@ RSpec.describe Users::RegistrationsController, type: :controller do
   }
 
   describe "POST create" do
-    subject { post :create, user: sign_up_params }
-
     describe "as Client" do
-      let(:userable) { "client" }
-
       context "with valid params" do
+        subject { post :create, user: sign_up_params, user_type: "client" }
+
         it { expect { subject }.to change(User, :count).by(1) }
         it { expect { subject }.to change(Client, :count).by(1) }
+      end
+
+      context "with invalid params" do
+        before { allow_any_instance_of(User).to receive(:save).and_return(false) }
+
+        it { expect(User.count).to eq(0) }
+        it { expect(Client.count).to eq(0) }
       end
     end
 
     describe "as Manager" do
-      let(:userable) { "manager" }
-
       context "with valid params" do
+        subject { post :create, user: sign_up_params, user_type: "manager" }
+
         it { expect { subject }.to change(User, :count).by(1) }
         it { expect { subject }.to change(Manager, :count).by(1) }
         it { expect { subject }.to change(Shop, :count).by(1) }
+      end
+
+      context "with invalid params" do
+        before { allow_any_instance_of(User).to receive(:save).and_return(false) }
+
+        it { expect(User.count).to eq(0) }
+        it { expect(Manager.count).to eq(0) }
+        it { expect(Shop.count).to eq(0) }
       end
     end
 

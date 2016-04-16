@@ -30,8 +30,6 @@ group :development, :test do
   gem 'thin'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'rb-inotify'#, '0.9'
-  gem 'libnotify'#, '0.5.9'
   gem 'guard-rspec'#, '0.5.5'
   gem 'spork', '1.0.0rc4'
   gem 'guard-spork'
@@ -42,16 +40,12 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rails_layout'
   gem 'faker'
-  gem "capybara-webkit", "~> 1.7.1"
   gem "launchy"
   gem 'database_cleaner'
-  gem 'parallel_tests'
   gem 'spring'
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'shoulda-matchers'
-  gem 'shoulda-callback-matchers', '~> 1.1.1'
 end
 
 group :development do
@@ -64,6 +58,10 @@ group :test do
   gem 'webmock'
   gem 'capybara-email'
   gem 'email_spec'
+  gem "capybara-webkit", "~> 1.7.1"
+  gem 'parallel_tests'
+  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
 end
 
 group :production, :staging  do

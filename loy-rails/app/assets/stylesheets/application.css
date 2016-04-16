@@ -10,6 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
+ *= require select2
+ *= require_directory ./application/detail_admin
+ *= require ./application/detail_admin_overrides
  *= require_directory ./application
  *= require_self
  */

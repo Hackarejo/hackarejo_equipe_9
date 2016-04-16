@@ -1,20 +1,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_filter :configure_permitted_parameters
-
   # POST /resource
   def create
     build_resource(sign_up_params)
-    binding.pry
-
-    if params[:userable] == "client"
-      resource.initialize_as("client")
-      # Client sign up
-    elsif params[:userable] == "manager"
-      resource.initialize_as("manager")
-      # temp_shop = resource.create_store!
-    end
-
-    resource.save!
+    resource.initialize_as(params[:user_type])
+    resource.save
 
     if resource.persisted?
       if resource.active_for_authentication?
@@ -27,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
-      # temp_shop.destroy if temp_store.present?
+      resource.clean_up_associations
       clean_up_passwords resource
       respond_with resource
     end
@@ -41,11 +30,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     root_path
-  end
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_in).push(:name)
-    devise_parameter_sanitizer.for(:sign_up).push(:name).push(:userable)
-    devise_parameter_sanitizer.for(:account_update).push(:name)
   end
 end

@@ -30,12 +30,6 @@ class ApplicationController < ActionController::Base
   end
 
   #
-  # After sign in path for resource
-  #
-  def after_sign_in_path_for(resource)
-  end
-
-  #
   # Verify access
   #
   def verify_access!
@@ -89,5 +83,14 @@ class ApplicationController < ActionController::Base
     end
 
     return start_date, end_date
+  end
+
+  #
+  # Configure permitted parameters
+  #
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_in).push(:name)
+    devise_parameter_sanitizer.for(:sign_up).push(:name)
+    devise_parameter_sanitizer.for(:account_update).push(:name)
   end
 end

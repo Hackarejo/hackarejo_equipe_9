@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :userable, polymorphic: true
+  belongs_to :userable, polymorphic: true, dependent: :destroy
 
   validates :name, presence: true
 
@@ -23,6 +23,19 @@ class User < ActiveRecord::Base
     case role
     when "client" then initialize_client
     when "manager"  then initialize_manager
+    end
+  end
+
+  #
+  # Clean up associations
+  #
+  def clean_up_associations
+    case self.userable_type
+    when "Client"
+      self.userable.destroy
+    when "Manager"
+      self.userable.shop.destroy
+      self.userable.destroy
     end
   end
 

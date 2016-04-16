@@ -42,11 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (userPreferences.isLogged()) {
             intent = new Intent(MainActivity.this, HomeActivity.class);
-            Log.i("Splash", "Está logado.");
         } else {
-            //TODO: Redirecionar para tela de login
-            intent = new Intent(MainActivity.this, HomeActivity.class);
-            Log.i("Splash", "Nâo está logado.");
+            intent = new Intent(MainActivity.this, LoginActivity.class);
         }
         startActivity(intent);
         finish();
