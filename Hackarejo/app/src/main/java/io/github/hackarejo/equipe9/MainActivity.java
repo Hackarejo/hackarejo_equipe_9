@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import io.github.hackarejo.equipe9.util.ConectWifi;
+import io.github.hackarejo.equipe9.util.GeneratedAlert;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,5 +29,12 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         }, 3000);
+
+        GeneratedAlert alert = new GeneratedAlert(this);
+        alert.getAlert();
+
+//        ConectWifi connect = new ConectWifi(this);
+//        connect.setConnection();
+
     }
 }
