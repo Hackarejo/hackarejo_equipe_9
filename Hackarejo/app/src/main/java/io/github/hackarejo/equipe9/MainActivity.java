@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         if (userPreferences.isLogged()) {
             intent = new Intent(MainActivity.this, HomeActivity.class);
         } else {
-            intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent = new Intent(MainActivity.this, HomeActivity.class);
         }
         startActivity(intent);
         finish();
