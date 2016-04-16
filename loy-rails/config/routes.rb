@@ -5,14 +5,20 @@ Rails.application.routes.draw do
 
   devise_for :users,
     controllers: {
-      registrations: "users/registrations"
+      registrations: "users/registrations",
+      sessions: "users/sessions"
     },
     path: "",
     path_names: {
       sign_in: "entrar",
       sign_out: "sair",
       sign_up: "cadastrar"
-    }
+    } do
+  end
+
+  devise_scope :user do
+    post "cadastro" => "users/registrations#create"
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
