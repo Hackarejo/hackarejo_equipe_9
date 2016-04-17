@@ -12,12 +12,18 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Handler;
 import android.support.v4.app.NotificationCompat;
 import android.telecom.Call;
 import android.util.Log;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import io.github.hackarejo.equipe9.MainActivity;
 import io.github.hackarejo.equipe9.R;
@@ -41,7 +47,6 @@ public class BroadCastReceiver extends BroadcastReceiver {
 
         String ssid = "Ampernet Hackarejo2016";
         String key = "cit@2016";
-
 
         WifiManager mainWifiObj;
         mainWifiObj = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
@@ -71,36 +76,58 @@ public class BroadCastReceiver extends BroadcastReceiver {
             Log.i("REDE ATIVANDO", "INICIANDO ATIVAÇÃO WIFI");
 
             WifiConfiguration wifiConfig = new WifiConfiguration();
-            wifiConfig.SSID = String.format("\"%s\"", ssid);
-            wifiConfig.preSharedKey = String.format("\"%s\"", key);
+
+            WifiInfo info_wifi = mainWifiObj.getConnectionInfo();
+            String _info = info_wifi.getSSID();
 
             final WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-            int netId = wifiManager.addNetwork(wifiConfig);
 
-            wifiManager.disconnect();
-            wifiManager.enableNetwork(netId, true);
-            wifiManager.reconnect();
+            if (!_info.equalsIgnoreCase("\""+ssid+"\"")) {
 
-            Visit visit = new Visit(wifiConfig.SSID);
+                wifiConfig.SSID = String.format("\"%s\"", ssid);
+                wifiConfig.preSharedKey = String.format("\"%s\"", key);
+
+                int netId = wifiManager.addNetwork(wifiConfig);
+
+                wifiManager.disconnect();
+                wifiManager.enableNetwork(netId, true);
+                wifiManager.reconnect();
+            }
+
+            try {
+                Log.i("WAIT", "5 SECONDS");
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            Visit visit = new Visit(ssid);
             UserPreferences preferences = new UserPreferences(context);
-            if (preferences.isLogged()) {
-                RestClient.api().registerVisit(preferences.getUser().getAccessToken(), visit, new Callback<Visit>() {
-                    @Override
-                    public void success(Visit visit, Response response) {
-                        if (!statusWifi) {
-                            wifiManager.setWifiEnabled(false);
-                        }
-                        Log.i("REDE DESATIVANDO", "FINALIZANDO A CONEXÃO COM A WIFI");
-                    }
 
-                    @Override
-                    public void failure(RetrofitError error) {
-                        if (!statusWifi) {
-                            wifiManager.setWifiEnabled(false);
+            if (preferences.isLogged()) {
+                try {
+                    RestClient.api().registerVisit(preferences.getUser().getAccessToken(), visit, new Callback<Visit>() {
+                        @Override
+                        public void success(Visit visit, Response response) {
+                            if (!statusWifi) {
+                                wifiManager.setWifiEnabled(false);
+                            }
+                            Log.i("REDE DESATIVANDO", "FINALIZANDO A CONEXÃO COM A WIFI");
                         }
-                        Log.i("REDE DESATIVANDO", "FINALIZANDO A CONEXÃO COM A WIFI");
-                    }
-                });
+
+                        @Override
+                        public void failure(RetrofitError error) {
+                            if (!statusWifi) {
+                                wifiManager.setWifiEnabled(false);
+                            }
+                            Log.i("REDE DESATIVANDO", "FINALIZANDO A CONEXÃO COM A WIFI");
+                        }
+                    });
+
+                } catch (Exception ex){
+                    Log.i("ERROR VISIT", "Error Requisition");
+                }
+
             } else {
                 if (!statusWifi) {
                     wifiManager.setWifiEnabled(false);
