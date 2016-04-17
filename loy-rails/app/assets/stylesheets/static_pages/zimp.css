@@ -1,0 +1,22 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+.login-logo, .register-logo {
+    margin-bottom: 0;
+}
+.btn-primary {
+    background-color: #0037ff;
+    border-color: #0037ff;
+	color: #fff;	
+}
+.btn-primary:hover {
+    background-color: #ffa800;
+    border-color: #ffa800;
+	color: #000;	
+}
+
+
+
+
+
+

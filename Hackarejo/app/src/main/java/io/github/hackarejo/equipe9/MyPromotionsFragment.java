@@ -44,8 +44,8 @@ public class MyPromotionsFragment extends Fragment {
 
         stores.add(store);
 
-        ListAdapter myStoresAdapter = new MyStoresAdapter(getActivity().getApplicationContext(), stores);
+        ListAdapter myPromotionsAdapter = new PromotionsAdapter(getActivity().getApplicationContext(), stores);
 
-        listMyPromotions.setAdapter(myStoresAdapter);
+        listMyPromotions.setAdapter(myPromotionsAdapter);
     }
 }

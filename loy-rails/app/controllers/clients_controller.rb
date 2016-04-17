@@ -1,10 +1,12 @@
 class ClientsController < ApplicationController
+  load_and_authorize_resource param_method: :client_params
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :filter_manager!
 
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.with_visit_at(current_user.userable.shop_id)
   end
 
   # GET /clients/1
@@ -14,7 +16,6 @@ class ClientsController < ApplicationController
 
   # GET /clients/new
   def new
-    @client = Client.new
   end
 
   # GET /clients/1/edit
@@ -24,8 +25,6 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    @client = Client.new(client_params)
-
     respond_to do |format|
       if @client.save
         format.html { redirect_to @client, notice: 'Client was successfully created.' }
@@ -64,7 +63,7 @@ class ClientsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
-      @client = Client.find(params[:id])
+      @client = Client.from_user_shop(current_user).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
