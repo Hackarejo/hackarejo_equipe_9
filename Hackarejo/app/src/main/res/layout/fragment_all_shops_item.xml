@@ -18,21 +18,20 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/my_stores_store_name"
+            android:id="@+id/all_stores_store_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Loja XX XX XX XX"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/my_stores_store_points"
+            android:id="@+id/all_stores_store_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="20 pontos"
+            android:text="Avenida Lorem Ipsum, 666"
             android:textColor="@color/black"
             android:textSize="17sp" />
-    </LinearLayout>
 
+    </LinearLayout>
 </android.support.v7.widget.CardView>

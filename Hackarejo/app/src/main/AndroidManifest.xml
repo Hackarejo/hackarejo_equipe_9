@@ -19,6 +19,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,16 +27,13 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"
-            />
+            android:label="@string/title_activity_register" />
 
         <receiver
             android:name=".util.BroadCastReceiver"
@@ -47,7 +45,10 @@
             </intent-filter>
         </receiver>
 
-
+        <activity
+            android:name=".ShopActivity"
+            android:label="@string/title_activity_shop"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -48,6 +48,14 @@ public class HomeActivity extends AppCompatActivity
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        Fragment fragment = new MyShopsFragment();
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.add(R.id.home_fragment_container, fragment);
+        ft.commit();
+
+        getSupportActionBar().setTitle("Minhas lojas");
     }
 
     @Override
