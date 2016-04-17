@@ -54,11 +54,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/lblName"
-            android:inputType="number"
             android:hint="@string/lblName"
             android:background="@drawable/border"
             android:textColorHint="@color/textBlack"
             android:layout_marginBottom="5dp"
+            android:inputType="text"
+
             />
 
             <EditText
@@ -67,11 +68,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblEmail"
-                android:inputType="number"
                 android:background="@drawable/border"
                 android:textColorHint="@color/textBlack"
                 android:hint="@string/lblEmail"
                 android:layout_marginBottom="5dp"
+                android:inputType="textEmailAddress"
                 />
 
             <EditText
@@ -93,11 +94,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblPassword"
-                android:inputType="number"
                 android:background="@drawable/border"
                 android:textColorHint="@color/textBlack"
                 android:hint="@string/lblPassword"
                 android:layout_marginBottom="5dp"
+                android:inputType="textPassword"
                 />
 
             <EditText
@@ -106,11 +107,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblCPassword"
-                android:inputType="number"
                 android:background="@drawable/border"
                 android:textColorHint="@color/textBlack"
                 android:hint="@string/lblCPassword"
                 android:layout_marginBottom="5dp"
+                android:inputType="textPassword"
                 />
 
             <Button

@@ -2,7 +2,7 @@
     <string name="app_name">Fidelis</string>
     <string name="title_activity_home">Home</string>
     <string name="title_activity_login">Login</string>
-    <string name="title_activity_register">Registrar-se</string>
+    <string name="title_activity_register">Seja um Fidelis</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -21,6 +21,7 @@
     <string name="lblCPassword">Conf. Senha</string>
 
     <string name="desc_login">Continuar</string>
-    <string name="desc_register">Cadastre-se</string>
+    <string name="desc_register">Não Possuo Cadastro</string>
+    <string name="desc_registersend">Enviar Cadastro</string>
 
 </resources>

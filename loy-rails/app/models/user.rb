@@ -7,9 +7,12 @@ class User < ActiveRecord::Base
   belongs_to :userable, polymorphic: true, dependent: :destroy
 
   validates :name, presence: true
+  validates :access_token, presence: true
+  validates :status, presence: true
 
-  before_create do
+  before_validation on: :create do
     self.status = 1
+    self.access_token = SecureRandom.urlsafe_base64
   end
 
   #
@@ -24,6 +27,27 @@ class User < ActiveRecord::Base
     when "client" then initialize_client
     when "manager"  then initialize_manager
     end
+  end
+
+  #
+  # Admin?
+  #
+  def admin?
+    self.userable_type == "Admin"
+  end
+
+  #
+  # Client?
+  #
+  def client?
+    self.userable_type == "Client"
+  end
+
+  #
+  # Manager?
+  #
+  def manager?
+    self.userable_type == "Manager"
   end
 
   #
@@ -45,15 +69,16 @@ class User < ActiveRecord::Base
   # Initialize Client
   #
   def initialize_client
-    self.userable = Client.create!
+    self.userable = Client.create
   end
 
   #
   # Initialize Manager
   #
   def initialize_manager
-    manager = Manager.create!
-    manager.shop = Shop.create!(name: "Loja do(a) #{self.name}")
+    manager = Manager.new
+    manager.shop = Shop.create(name: "Loja do(a) #{self.name}")
+    manager.save
 
     self.userable = manager
   end
