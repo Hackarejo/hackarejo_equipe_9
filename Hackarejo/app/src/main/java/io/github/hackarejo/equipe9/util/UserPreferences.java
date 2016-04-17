@@ -17,18 +17,18 @@ public class UserPreferences {
     private Context context;
     public static final String PREFS_NAME = "fidelis_prefs";
 
-    public UserPreferences(Context context){
+    public UserPreferences(Context context) {
         this.context = context;
     }
 
-    private boolean savePreferences(String name, String email, String key){
+    private boolean savePreferences(String name, String email, String key) {
 
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("prefname", name);
         editor.putString("prefemail", email);
-        editor.putString("prefkey",key);
-        if (editor.commit()){
+        editor.putString("prefkey", key);
+        if (editor.commit()) {
             return true;
         }
         return false;
@@ -39,29 +39,30 @@ public class UserPreferences {
 
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         Preference pref = new Preference();
-        pref.setEmail(settings.getString("prefemail",""));
-        pref.setName(settings.getString("prefname",""));
-        pref.setKey(settings.getString("prefkey",""));
+        pref.setEmail(settings.getString("prefemail", ""));
+        pref.setName(settings.getString("prefname", ""));
+        pref.setKey(settings.getString("prefkey", ""));
 
         return pref;
 
     }
 
-    public void setUser(User user){
-       savePreferences(user.getName(), user.getEmail(), user.getAccessToken());
+    public void setUser(User user) {
+        savePreferences(user.getName(), user.getEmail(), user.getAccessToken());
     }
 
-    public User getUser(){
+    public User getUser() {
         return new User(getPreferences());
     }
 
-    public void deleteUser(){
+    public void deleteUser() {
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.clear();
+        editor.apply();
     }
 
-    public boolean isLogged(){
+    public boolean isLogged() {
         User user = getUser();
 
         return user.getAccessToken() != null && !user.getAccessToken().isEmpty();
