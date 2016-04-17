@@ -1,11 +1,14 @@
 package io.github.hackarejo.equipe9;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.GravityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -49,10 +52,21 @@ public class MyShopsFragment extends Fragment {
 
     Callback<List<Shop>> shopsCallback = new Callback<List<Shop>>() {
         @Override
-        public void success(List<Shop> shops, Response response) {
+        public void success(final List<Shop> shops, Response response) {
             ListAdapter allShopsAdapter = new MyShopsAdapter(getActivity().getApplicationContext(), shops);
 
             listMyStores.setAdapter(allShopsAdapter);
+
+            listMyStores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(getActivity(), ShopActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("shop_id", shops.get((int) id).getId());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+            });
         }
 
         @Override
@@ -60,4 +74,5 @@ public class MyShopsFragment extends Fragment {
 
         }
     };
+
 }

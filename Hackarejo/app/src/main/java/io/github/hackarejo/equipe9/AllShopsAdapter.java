@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import butterknife.Bind;
 import io.github.hackarejo.equipe9.model.Shop;
 
 /**
@@ -17,15 +16,10 @@ import io.github.hackarejo.equipe9.model.Shop;
  */
 
 public class AllShopsAdapter extends BaseAdapter {
-
     Context context;
     List<Shop> stores;
-
-    @Bind(R.id.my_stores_store_name)
     TextView tvStoreName;
-
-    @Bind(R.id.my_stores_store_points)
-    TextView tvStorePoints;
+    TextView tvStoreAddress;
 
     public AllShopsAdapter(Context context, List<Shop> stores) {
         this.context = context;
@@ -49,11 +43,15 @@ public class AllShopsAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final Shop store = stores.get(position);
+        final Shop shop = stores.get(position);
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_all_stores_item, null);
+        View view = inflater.inflate(R.layout.fragment_all_shops_item, null);
+        tvStoreName = (TextView) view.findViewById(R.id.all_stores_store_name);
+        tvStoreAddress = (TextView) view.findViewById(R.id.all_stores_store_address);
 
+        tvStoreName.setText(shop.getName());
+        // tvStoreAddress.setText(shop.getCredits().toString() + " pontos");
         return view;
     }
 }
