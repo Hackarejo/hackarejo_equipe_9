@@ -12,6 +12,8 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @shop = current_user.userable.shop
+    @visits = @client.visits_at(@shop)
   end
 
   # GET /clients/new
