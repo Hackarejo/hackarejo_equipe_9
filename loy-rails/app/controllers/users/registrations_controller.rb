@@ -30,7 +30,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       respond_to do |format|
         format.html { respond_with resource }
-        format.json { render "users/show" }
+        format.json { render "users/show", status: :unprocessable_entity }
       end
     end
   end
