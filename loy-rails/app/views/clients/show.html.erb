@@ -21,11 +21,11 @@
       <tbody>
         <% @visits.each do |visit| %>
           <tr>
-            <td><%= show_date visit.created_at %></td>
+            <td><%= show_date_time visit.created_at %></td>
           </tr>
+        <% end %>
       </tbody>
     </table>
 
-    <% end %>
   </div>
 </div>

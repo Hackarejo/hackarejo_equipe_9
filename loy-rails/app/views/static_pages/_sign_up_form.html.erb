@@ -7,39 +7,38 @@
   html: { class: "form-horizontal" }
   ) do |f| %>
 
-
 <div class="login-box">
       <div class="login-logo">
         <a href="http://localhost:3000">
-			<%= image_tag "logo.png" %> 	
+			<%= image_tag "logo.png" %>
         </a>
       </div><!-- /.login-logo -->
-      
+
       <div class="login-box-body">
-		  <p class="login-box-msg">Castre-se para iniciar sua sessão</p>    
+		  <p class="login-box-msg">Cadastre-se para iniciar sua sessão</p>
 	      <div class="form-group has-feedback">
 			   <%= f.input :name, required: true, label: false, wrapper: "inline", input_html: {placeholder: "Nome"} %>
-            <span class="form-control-feedback"><i class="fa fa-user"></i></span> 
+            <span class="form-control-feedback"><i class="fa fa-user"></i></span>
           </div>
-          
+
           <div class="form-group has-feedback">
 			  <%= f.input :email, required: true, label: false, wrapper: "inline", input_html: {placeholder: "E-mail"} %>
-            <span class="form-control-feedback"><i class="fa fa-envelope"></i></span> 
+            <span class="form-control-feedback"><i class="fa fa-envelope"></i></span>
           </div>
-          
+
           <div class="form-group has-feedback">
 			  <%= f.input :password, required: true, label: false, wrapper: "inline", input_html: {placeholder: "Senha"} %>
-            <span class="form-control-feedback"><i class="fa fa-key"></i></span> 
+            <span class="form-control-feedback"><i class="fa fa-key"></i></span>
           </div>
 
           <div class="form-group has-feedback">
 			  <%= f.input :password_confirmation, required: true, label: false, wrapper: "inline", input_html: {placeholder: "Confirme sua Senha"} %>
-            <span class="form-control-feedback"><i class="fa fa-key"></i></span> 
+            <span class="form-control-feedback"><i class="fa fa-key"></i></span>
           </div>
-          
-         
+
+
           <div class="form-group has-feedback">
-		
+
 		  <div class="row">
             <div class="col-xs-6">
             <%= radio_button_tag :user_type, "client" %>
@@ -47,18 +46,18 @@
             </div>
             <div class="col-xs-6">
             <%= radio_button_tag :user_type, "manager" %>
-			<%= label_tag :userable_manager, "Lojista" %>		
+			<%= label_tag :userable_manager, "Lojista" %>
             </div>
-          </div>		
           </div>
-          
-          
+          </div>
+
           <div class="row">
             <div class="col-xs-12">
            		 <%= f.button :submit, "Experimente Grátis!", class: "btn btn-primary btn-block btn-flat" %>
+               <br>
+               <%= link_to "Login", new_session_path(resource_name), class: "btn btn-default btn btn-primary btn-block btn-flat"  %>
             </div><!-- /.col -->
           </div>
-
 
         <div class="social-auth-links text-center">
           <p></p>
@@ -71,8 +70,6 @@
 
       </div><!-- /.login-box-body -->
     </div>
-	  
-	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  	  
 
 <% end %>
 

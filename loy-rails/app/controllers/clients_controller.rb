@@ -6,7 +6,8 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.with_visit_at(current_user.userable.shop_id)
+    @shop = current_user.userable.shop
+    @clients = Client.with_visit_at(current_user.userable.shop_id).distinct
   end
 
   # GET /clients/1

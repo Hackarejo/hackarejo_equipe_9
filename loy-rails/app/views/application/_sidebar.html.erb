@@ -1,9 +1,21 @@
 <!-- sidebar -->
 <div id="sidebar-nav">
   <ul id="dashboard-menu">
+    <%= sidebar_item_for("Bonificações", "trophy",
+      path: "#",
+      page_controller: "",
+      id: "agenda-menu-item"
+    ) %>
+
     <%= sidebar_item_for("Clientes", "users",
       path: clients_path,
       page_controller: "clients",
+      id: "agenda-menu-item"
+    ) %>
+
+    <%= sidebar_item_for("Promoções", "tags",
+      path: "#",
+      page_controller: "tags",
       id: "agenda-menu-item"
     ) %>
 
