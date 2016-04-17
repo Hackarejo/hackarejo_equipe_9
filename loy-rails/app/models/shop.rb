@@ -18,7 +18,7 @@ class Shop < ActiveRecord::Base
   # Register a visit by a given client
   #
   def register_visit_by(client)
-    Visit.create(shop_id: self.id, client_id: client.id)
     Credit.create(shop_id: self.id, client_id: client.id, quantity: 1)
+    return Visit.create(shop_id: self.id, client_id: client.id)
   end
 end
