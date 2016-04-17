@@ -11,7 +11,7 @@ import retrofit.converter.GsonConverter;
  */
 public class RestClient {
     private static Api api;
-    public static String ROOT = "http://api.wegorun.com.br";
+    public static String ROOT = "http://172.40.0.81:3000";
 
     static {
         setupRestClient();

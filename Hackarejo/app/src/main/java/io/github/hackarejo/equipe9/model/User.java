@@ -1,6 +1,7 @@
 package io.github.hackarejo.equipe9.model;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
@@ -31,6 +32,11 @@ public class User implements Serializable {
     @Getter
     @Setter
     @Expose
+    @SerializedName("password_confirmation")
+    private String passwordConfirmation;
+    @Getter
+    @Setter
+    @Expose
     private String status;
     @Getter
     @Setter
@@ -43,9 +49,13 @@ public class User implements Serializable {
     @Getter
     @Setter
     @Expose
+    @SerializedName("access_token")
     private String accessToken;
 
-    public User(Preference preference){
+    public User() {
+    }
+
+    public User(Preference preference) {
         this.name = preference.getName();
         this.email = preference.getEmail();
         this.accessToken = preference.getKey();
