@@ -8,9 +8,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="io.github.hackarejo.equipe9.RegisterActivity"
-    android:background="@drawable/login_bg"
+    android:background="@color/background"
     >
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,14 +22,31 @@
             android:orientation="vertical"
             >
 
-        <TextView
-            android:id="@+id/lblName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="@string/lblName"
-            android:layout_marginTop="5dp"
-            android:textColor="#FFFFFF" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Cadastre-se,"
+                android:shadowColor="@color/text_shadow"
+                android:textColor="@color/textGray"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="3"
+                android:textSize="30dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/textWhite"
+                android:text="e tenha muitos beneficios."
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="3"
+                android:textSize="15dp"
+                android:hint=""
+                android:layout_marginBottom="10dp"
+                />
 
         <EditText
             android:id="@+id/txtName"
@@ -39,16 +55,11 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/lblName"
             android:inputType="number"
+            android:hint="@string/lblName"
+            android:background="@drawable/border"
+            android:textColorHint="@color/textBlack"
+            android:layout_marginBottom="5dp"
             />
-
-            <TextView
-                android:id="@+id/lblEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="@string/lblEmail"
-                android:layout_marginTop="5dp"
-                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/txtEmail"
@@ -57,16 +68,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblEmail"
                 android:inputType="number"
+                android:background="@drawable/border"
+                android:textColorHint="@color/textBlack"
+                android:hint="@string/lblEmail"
+                android:layout_marginBottom="5dp"
                 />
-
-            <TextView
-                android:id="@+id/lblCpf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="@string/lblCpf"
-                android:layout_marginTop="5dp"
-                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/txtCpf"
@@ -75,16 +81,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblCpf"
                 android:inputType="number"
+                android:background="@drawable/border"
+                android:textColorHint="@color/textBlack"
+                android:hint="@string/lblCpf"
+                android:layout_marginBottom="5dp"
                 />
-
-            <TextView
-                android:id="@+id/lblPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="Senha"
-                android:layout_marginTop="5dp"
-                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/txtRPassword"
@@ -93,16 +94,11 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblPassword"
                 android:inputType="number"
+                android:background="@drawable/border"
+                android:textColorHint="@color/textBlack"
+                android:hint="@string/lblPassword"
+                android:layout_marginBottom="5dp"
                 />
-
-            <TextView
-                android:id="@+id/lblCPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:text="@string/lblCPassword"
-                android:layout_marginTop="5dp"
-                android:textColor="#FFFFFF" />
 
             <EditText
                 android:id="@+id/txtCPassword"
@@ -111,15 +107,23 @@
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblCPassword"
                 android:inputType="number"
+                android:background="@drawable/border"
+                android:textColorHint="@color/textBlack"
+                android:hint="@string/lblCPassword"
+                android:layout_marginBottom="5dp"
                 />
 
             <Button
                 android:id="@+id/buttonSendRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/desc_register"
+                android:text="@string/desc_registersend"
                 android:layout_below="@+id/txtCPassword"
-                android:layout_alignParentLeft="@+id/txtCPassword" />
+                android:background="@color/button"
+                android:textColor="@color/textWhite"
+                android:layout_alignParentLeft="@+id/txtCPassword"
+                android:layout_marginBottom="5dp"
+                />
 
 
         </LinearLayout>
