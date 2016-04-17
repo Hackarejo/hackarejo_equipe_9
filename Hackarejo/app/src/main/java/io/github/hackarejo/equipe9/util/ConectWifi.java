@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Log;
 
@@ -74,6 +75,25 @@ public class ConectWifi {
 
                 Log.i("REDE DESATIVANDO", "FINALIZANDO A CONEXÃO COM A WIFI");
 
+            }
+
+        }
+
+        public boolean isConnected(){
+
+            String ssid = "Ampernet Hackarejo2016";
+
+            WifiManager mainWifiObj;
+            mainWifiObj = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+
+            mainWifiObj.getConnectionInfo();
+            WifiInfo info_wifi = mainWifiObj.getConnectionInfo();
+            String _info = info_wifi.getSSID();
+
+            if (!_info.equalsIgnoreCase("\""+ssid+"\"")) {
+                return false;
+            } else {
+                return true;
             }
 
         }

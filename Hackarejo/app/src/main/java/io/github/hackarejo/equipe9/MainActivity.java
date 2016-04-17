@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
         GeneratedAlert alert = new GeneratedAlert(this);
         alert.getAlert();
     }
-//        ConectWifi connect = new ConectWifi(this);
-//        connect.setConnection();
 
     public void redirectTo() {
         UserPreferences userPreferences = new UserPreferences(getApplicationContext());
