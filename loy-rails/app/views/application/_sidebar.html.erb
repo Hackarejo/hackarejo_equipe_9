@@ -3,7 +3,13 @@
   <ul id="dashboard-menu">
     <%= sidebar_item_for("Clientes", "users",
       path: clients_path,
-      page_controller: "calendar_events",
+      page_controller: "clients",
+      id: "agenda-menu-item"
+    ) %>
+
+    <%= sidebar_item_for("Redes Wireless", "wifi",
+      path: wirelesses_path,
+      page_controller: "wirelesses",
       id: "agenda-menu-item"
     ) %>
   </ul>

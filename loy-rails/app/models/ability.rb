@@ -6,7 +6,7 @@ class Ability
   def initialize(user)
     return if user.blank?
 
-    normal_user_permissions(user)
+    signed_in_user_permissions(user)
     client_user_permissions(user) if user.client?
     manager_user_permissions(user) if user.manager?
 
@@ -46,8 +46,10 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
   end
 
-  def normal_user_permissions(user)
+  def signed_in_user_permissions(user)
     can :read, User
+    can :read, Wireless
+    can :read, Visit
   end
 
   def client_user_permissions(user)
@@ -56,5 +58,6 @@ class Ability
 
   def manager_user_permissions(user)
     can :read, Client
+    can :manage, Wireless, shop_id: user.userable.shop_id
   end
 end

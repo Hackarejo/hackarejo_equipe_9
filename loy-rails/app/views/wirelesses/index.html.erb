@@ -1,0 +1,25 @@
+<%= render "shared/row_header", title: "Redes Wireless",
+  buttons: new_button(Wireless)
+%>
+
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @wirelesses.each do |wireless| %>
+        <tr>
+          <td><%= wireless.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <% #= will_paginate @clients, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>

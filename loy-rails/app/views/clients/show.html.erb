@@ -5,5 +5,27 @@
     <%= render "shared/column_header", title: "Dados" %>
     <%= show_field(@client, :name) %>
     <%= show_field(@client, :cpf) %>
+    <%= show_field(@client, :credits_at, value: @client.credits_at(@shop)) %>
+  </div>
+
+  <div class="col-md-6">
+    <%= render "shared/column_header", title: "Visitas" %>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Data</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @visits.each do |visit| %>
+          <tr>
+            <td><%= show_date visit.created_at %></td>
+          </tr>
+      </tbody>
+    </table>
+
+    <% end %>
   </div>
 </div>

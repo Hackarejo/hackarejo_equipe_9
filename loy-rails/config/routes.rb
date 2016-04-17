@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :managers
   resources :shops
   resources :clients
+  resources :visits
+  resources :wirelesses
 
   devise_for :users,
     controllers: {
