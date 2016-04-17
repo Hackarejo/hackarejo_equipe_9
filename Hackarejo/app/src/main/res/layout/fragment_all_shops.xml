@@ -2,7 +2,10 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_marginTop="?attr/actionBarSize"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/all_bg"
+    android:id="@+id/frag_all_shops"
+    >
 
     <ListView
         android:id="@+id/my_allstores_list"

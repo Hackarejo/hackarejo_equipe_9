@@ -1,5 +1,6 @@
 package io.github.hackarejo.equipe9;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -15,6 +17,7 @@ import java.util.List;
 
 import io.github.hackarejo.equipe9.model.Shop;
 import io.github.hackarejo.equipe9.rest.RestClient;
+import io.github.hackarejo.equipe9.util.ConectWifi;
 import io.github.hackarejo.equipe9.util.UserPreferences;
 import retrofit.Callback;
 import retrofit.RetrofitError;
@@ -45,6 +48,7 @@ public class AllShopsFragment extends Fragment {
         listAllShops = (ListView) view.findViewById(R.id.my_allstores_list);
         UserPreferences preferences = new UserPreferences(getActivity().getApplicationContext());
         String token = preferences.getUser().getAccessToken();
+
         RestClient.api().getShops(token, "all", shopsCallback);
     }
 

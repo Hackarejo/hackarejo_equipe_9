@@ -34,6 +34,6 @@ public interface Api {
     @GET("/shops/{id}.json")
     public void getShopBy(@Header("access_token") String token, @Path("id") String id, Callback<Shop> shopCallback);
 
-    @POST("/visit.json")
+    @POST("/visits.json")
     public void registerVisit(@Header("access_token") String token, @Body Visit visit, Callback<Visit> VisitCallback);
 }
