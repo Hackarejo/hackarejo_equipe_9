@@ -1,6 +1,7 @@
 package io.github.hackarejo.equipe9.model;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
@@ -10,7 +11,7 @@ import lombok.Setter;
 /**
  * Created by paulosilvestre on 16/04/16.
  */
-public class Store implements Serializable {
+public class Shop implements Serializable {
 
     @Getter
     @Setter
@@ -39,16 +40,14 @@ public class Store implements Serializable {
     @Getter
     @Setter
     @Expose
-    private String razaosocial;
+    private String info;
     @Getter
     @Setter
     @Expose
-    private String status;
+    @SerializedName("company_name")
+    private String companyName;
     @Getter
     @Setter
     @Expose
-    private String site;
-
-
-
+    private Integer credits;
 }

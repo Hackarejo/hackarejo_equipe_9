@@ -9,37 +9,32 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import butterknife.Bind;
-import io.github.hackarejo.equipe9.model.Store;
+import io.github.hackarejo.equipe9.model.Shop;
 
 /**
  * Created by tafarel on 16/04/16.
  */
 
-public class AllStoresAdapter extends BaseAdapter {
-
+public class MyShopsAdapter extends BaseAdapter {
     Context context;
-    List<Store> stores;
+    List<Shop> shops;
 
-    @Bind(R.id.my_stores_store_name)
     TextView tvStoreName;
-
-    @Bind(R.id.my_stores_store_points)
     TextView tvStorePoints;
 
-    public AllStoresAdapter(Context context, List<Store> stores) {
+    public MyShopsAdapter(Context context, List<Shop> shops) {
         this.context = context;
-        this.stores = stores;
+        this.shops = shops;
     }
 
     @Override
     public int getCount() {
-        return stores.size();
+        return shops.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return stores.get(position);
+        return shops.get(position);
     }
 
     @Override
@@ -49,10 +44,16 @@ public class AllStoresAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final Store store = stores.get(position);
+        final Shop shop = shops.get(position);
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.fragment_my_allstores_item, null);
+        View view = inflater.inflate(R.layout.fragment_my_shops_item, null);
+
+        tvStoreName = (TextView) view.findViewById(R.id.my_stores_store_name);
+        tvStorePoints = (TextView) view.findViewById(R.id.my_stores_store_points);
+
+        tvStoreName.setText(shop.getName());
+        tvStorePoints.setText(shop.getCredits().toString() + " pontos");
 
         return view;
     }

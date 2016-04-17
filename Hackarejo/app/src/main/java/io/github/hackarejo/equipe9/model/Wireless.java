@@ -31,7 +31,7 @@ public class Wireless implements Serializable {
     @Getter
     @Setter
     @Expose
-    private Store store;
+    private Shop store;
 
 
 }
