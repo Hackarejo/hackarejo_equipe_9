@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/lblName"
-            android:inputType="number"
+            android:inputType="text"
             />
 
             <TextView
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblEmail"
-                android:inputType="number"
+                android:inputType="textEmailAddress"
                 />
 
             <TextView
@@ -92,7 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblPassword"
-                android:inputType="number"
+                android:inputType="textPassword"
                 />
 
             <TextView
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblCPassword"
-                android:inputType="number"
+                android:inputType="textPassword"
                 />
 
             <Button

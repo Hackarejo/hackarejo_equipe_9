@@ -3,6 +3,7 @@ package io.github.hackarejo.equipe9;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import io.github.hackarejo.equipe9.util.UserPreferences;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -101,9 +103,11 @@ public class HomeActivity extends AppCompatActivity
                 fragment = new MyPromotionsFragment();
                 break;
             case R.id.nav_exit:
-                actionBarTitle = "Sair";
-                fragment = new MyStoresFragment();
-                break;
+                UserPreferences userPreferences = new UserPreferences(this);
+                userPreferences.deleteUser();
+                Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
             default:
                 actionBarTitle = "Minhas lojas";
                 fragment = new MyStoresFragment();
