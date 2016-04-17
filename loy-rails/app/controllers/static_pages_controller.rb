@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   # GET /index
   def index
     if user_signed_in?
-      # TODO
+      redirect_to clients_path
     else
       @title = "Fidelis"
     end

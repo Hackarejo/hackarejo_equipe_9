@@ -1,14 +1,9 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/row_header", title: "Clientes" %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
-
-<p>
-  <strong>Cpf:</strong>
-  <%= @client.cpf %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<div class="row form-horizontal">
+  <div class="col-md-6">
+    <%= render "shared/column_header", title: "Dados" %>
+    <%= show_field(@client, :name) %>
+    <%= show_field(@client, :cpf) %>
+  </div>
+</div>

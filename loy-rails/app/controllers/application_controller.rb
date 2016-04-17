@@ -38,10 +38,27 @@ class ApplicationController < ActionController::Base
   end
 
   #
+  # Filter Manager
+  #
+  def filter_client!
+    return if current_user.admin? or current_user.client?
+    redirect_to root_url
+  end
+
+  #
   # Verify access
   #
   def verify_access!
-    authenticate_user! unless is_a? StaticPagesController
+    return if is_a? StaticPagesController
+
+    access_token = request.headers["HTTP_ACCESS_TOKEN"]
+
+    if access_token.present?
+      user = User.where(access_token: access_token).first
+      sign_in user, store: false if user.present?
+    else
+      authenticate_user!
+    end
   end
 
   #
@@ -98,7 +115,7 @@ class ApplicationController < ActionController::Base
   #
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_in).push(:name)
-    devise_parameter_sanitizer.for(:sign_up).push(:name)
+    devise_parameter_sanitizer.for(:sign_up).push(:name).push(:cpf)
     devise_parameter_sanitizer.for(:account_update).push(:name)
   end
 

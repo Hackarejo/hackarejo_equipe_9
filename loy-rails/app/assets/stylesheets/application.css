@@ -11,9 +11,13 @@
  * file per style scope.
  *
  *= require font-awesome
+ *= require ./application/bootstrap.min
  *= require select2
  *= require_directory ./application/detail_admin
  *= require ./application/detail_admin_overrides
  *= require_directory ./application
  *= require_self
  */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic);

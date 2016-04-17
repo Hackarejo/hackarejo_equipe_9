@@ -1,0 +1,13 @@
+<% buttons ||= [] %>
+<% buttons = [buttons] if buttons.present? and !buttons.is_a? Array %>
+<% row_header_class ||= ""%>
+
+<div class="row header <%=row_header_class %>">
+  <h2><%= title %></h2>
+  <div class="pull-right">
+    <%= content_for :header_controls %>
+    <% buttons.each do |button| %>
+      <%= button %>
+    <% end %>
+  </div>
+</div>

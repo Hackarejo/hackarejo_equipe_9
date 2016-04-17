@@ -24,7 +24,6 @@ gem 'jquery-turbolinks'
 gem 'delocalize', '~> 1.0.0'
 gem 'nested_form'
 gem "paperclip"
-gem "twitter-bootstrap-rails"
 
 group :development, :test do
   gem 'thin'

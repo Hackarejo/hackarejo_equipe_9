@@ -1,0 +1,5 @@
+<% action    = resource.id.nil? ? t(:create) : t(:edit) %>
+<% title   ||= "#{action} #{resource.class.title}" %>
+<% buttons ||= default_form_buttons %>
+
+<%= render 'shared/row_header', title: title, buttons: buttons %>
