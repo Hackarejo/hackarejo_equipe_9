@@ -6,4 +6,8 @@
     <color name="black">#000000</color>
     <color name="text_shadow">#000000</color>
     <color name="background">#D0D0D0</color>
+    <color name="button">#FFA800</color>
+    <color name="textWhite">#FFFFFF</color>
+    <color name="textBlack">#000000</color>
+    <color name="textGray">#333333</color>
 </resources>

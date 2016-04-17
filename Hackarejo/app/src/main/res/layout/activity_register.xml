@@ -3,64 +3,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="io.github.hackarejo.equipe9.RegisterActivity"
-    android:background="@color/colorPrimary"
-    >
+    tools:context="io.github.hackarejo.equipe9.RegisterActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Cadastre-se,"
                 android:shadowColor="@color/text_shadow"
-                android:textColor="@color/textWhite"
                 android:shadowDx="2"
                 android:shadowDy="2"
                 android:shadowRadius="3"
-                android:textSize="30dp"
-                />
+                android:text="Cadastre-se,"
+                android:textColor="@color/textWhite"
+                android:textSize="30dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/textWhite"
-                android:text="e tenha muitos beneficios."
+                android:layout_marginBottom="10dp"
+                android:hint=""
                 android:shadowColor="@color/text_shadow"
                 android:shadowDx="1"
                 android:shadowDy="1"
                 android:shadowRadius="3"
-                android:textSize="15dp"
-                android:hint=""
-                android:layout_marginBottom="10dp"
+                android:text="e tenha muitos beneficios."
+                android:textColor="@color/textWhite"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/lblName"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/border"
+                android:hint="@string/lblName"
+                android:inputType="text"
+                android:textColorHint="@color/textBlack"
+
                 />
-
-        <EditText
-            android:id="@+id/txtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/lblName"
-            android:hint="@string/lblName"
-            android:background="@drawable/border"
-            android:textColorHint="@color/textBlack"
-            android:layout_marginBottom="5dp"
-            android:inputType="text"
-
-            />
 
             <EditText
                 android:id="@+id/txtEmail"
@@ -68,12 +63,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblEmail"
-                android:background="@drawable/border"
-                android:textColorHint="@color/textBlack"
-                android:hint="@string/lblEmail"
                 android:layout_marginBottom="5dp"
+                android:background="@drawable/border"
+                android:hint="@string/lblEmail"
                 android:inputType="textEmailAddress"
-                />
+                android:textColorHint="@color/textBlack" />
 
             <EditText
                 android:id="@+id/txtCpf"
@@ -81,12 +75,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblCpf"
-                android:inputType="number"
-                android:background="@drawable/border"
-                android:textColorHint="@color/textBlack"
-                android:hint="@string/lblCpf"
                 android:layout_marginBottom="5dp"
-                />
+                android:background="@drawable/border"
+                android:hint="@string/lblCpf"
+                android:inputType="number"
+                android:textColorHint="@color/textBlack" />
 
             <EditText
                 android:id="@+id/txtRPassword"
@@ -94,12 +87,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblPassword"
-                android:background="@drawable/border"
-                android:textColorHint="@color/textBlack"
-                android:hint="@string/lblPassword"
                 android:layout_marginBottom="5dp"
+                android:background="@drawable/border"
+                android:hint="@string/lblPassword"
                 android:inputType="textPassword"
-                />
+                android:textColorHint="@color/textBlack" />
 
             <EditText
                 android:id="@+id/txtCPassword"
@@ -107,24 +99,33 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_below="@+id/lblCPassword"
-                android:background="@drawable/border"
-                android:textColorHint="@color/textBlack"
-                android:hint="@string/lblCPassword"
                 android:layout_marginBottom="5dp"
+                android:background="@drawable/border"
+                android:hint="@string/lblCPassword"
                 android:inputType="textPassword"
-                />
+                android:textColorHint="@color/textBlack" />
 
             <Button
                 android:id="@+id/buttonSendRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/desc_registersend"
-                android:layout_below="@+id/txtCPassword"
-                android:background="@color/button"
-                android:textColor="@color/textWhite"
                 android:layout_alignParentLeft="@+id/txtCPassword"
+                android:layout_below="@+id/txtCPassword"
                 android:layout_marginBottom="5dp"
-                />
+                android:background="@color/button"
+                android:text="@string/desc_registersend"
+                android:textColor="@color/textWhite" />
+
+            <Button
+                android:id="@+id/buttonBackLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="@+id/txtCPassword"
+                android:layout_below="@+id/txtCPassword"
+                android:layout_marginBottom="5dp"
+                android:background="@color/button"
+                android:text="Fazer Login"
+                android:textColor="@color/textWhite" />
 
         </LinearLayout>
 
