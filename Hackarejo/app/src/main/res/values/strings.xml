@@ -23,5 +23,6 @@
     <string name="desc_login">Continuar</string>
     <string name="desc_register">Não Possuo Cadastro</string>
     <string name="desc_registersend">Enviar Cadastro</string>
+    <string name="title_activity_shop">ShopActivity</string>
 
 </resources>
