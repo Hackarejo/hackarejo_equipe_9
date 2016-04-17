@@ -10,8 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import butterknife.Bind;
-import io.github.hackarejo.equipe9.R;
-import io.github.hackarejo.equipe9.model.Store;
+import io.github.hackarejo.equipe9.model.Shop;
 
 /**
  * Created by tafarel on 16/04/16.
@@ -20,7 +19,7 @@ import io.github.hackarejo.equipe9.model.Store;
 public class PromotionsAdapter extends BaseAdapter {
 
     Context context;
-    List<Store> stores;
+    List<Shop> stores;
 
     @Bind(R.id.my_stores_store_name)
     TextView tvStoreName;
@@ -28,7 +27,7 @@ public class PromotionsAdapter extends BaseAdapter {
     @Bind(R.id.my_stores_store_points)
     TextView tvStorePoints;
 
-    public PromotionsAdapter(Context context, List<Store> stores) {
+    public PromotionsAdapter(Context context, List<Shop> stores) {
         this.context = context;
         this.stores = stores;
     }
@@ -50,7 +49,7 @@ public class PromotionsAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final Store store = stores.get(position);
+        final Shop store = stores.get(position);
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.fragment_my_promotions_item, null);

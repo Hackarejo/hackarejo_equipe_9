@@ -36,6 +36,6 @@ public class Promotion implements Serializable {
     @Getter
     @Setter
     @Expose
-    private Store store;
+    private Shop store;
 
 }

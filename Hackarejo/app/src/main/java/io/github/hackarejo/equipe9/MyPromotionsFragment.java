@@ -12,7 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.hackarejo.equipe9.model.Store;
+import io.github.hackarejo.equipe9.model.Shop;
 
 public class MyPromotionsFragment extends Fragment {
 
@@ -37,9 +37,9 @@ public class MyPromotionsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         listMyPromotions = (ListView) view.findViewById(R.id.my_promotions_list);
-        List<Store> stores = new ArrayList<>();
+        List<Shop> stores = new ArrayList<>();
 
-        Store store = new Store();
+        Shop store = new Shop();
         store.setName("LISTA DE PROMOÇÕES");
 
         stores.add(store);

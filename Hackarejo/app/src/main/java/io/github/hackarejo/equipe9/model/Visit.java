@@ -1,6 +1,7 @@
 package io.github.hackarejo.equipe9.model;
 
 import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -28,11 +29,18 @@ public class Visit implements Serializable {
     @Getter
     @Setter
     @Expose
-    private Store store;
+    private Shop store;
     @Getter
     @Setter
     @Expose
     private Client client;
+    @Getter
+    @Setter
+    @Expose
+    @SerializedName("wireless_name")
+    private String wirelessName;
 
-
+    public Visit(String wirelessName) {
+        this.wirelessName = wirelessName;
+    }
 }

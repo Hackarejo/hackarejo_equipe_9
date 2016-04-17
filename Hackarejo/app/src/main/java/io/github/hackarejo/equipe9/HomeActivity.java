@@ -91,12 +91,12 @@ public class HomeActivity extends AppCompatActivity
         String actionBarTitle;
         switch (id) {
             case R.id.nav_all_stores:
-                fragment = new AllStoresFragment();
+                fragment = new AllShopsFragment();
                 actionBarTitle = "Todas as lojas";
                 break;
             case R.id.nav_my_stores:
                 actionBarTitle = "Minhas lojas";
-                fragment = new MyStoresFragment();
+                fragment = new MyShopsFragment();
                 break;
             case R.id.nav_offers:
                 actionBarTitle = "Promoções";
@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity
                 finish();
             default:
                 actionBarTitle = "Minhas lojas";
-                fragment = new MyStoresFragment();
+                fragment = new MyShopsFragment();
                 break;
         }
 
