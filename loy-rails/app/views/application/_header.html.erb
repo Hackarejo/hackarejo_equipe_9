@@ -1,2 +1,30 @@
-Header application
-<%= link_to "Sair", destroy_user_session_path, method: :delete, class: "exit" %>
+<!-- navbar -->
+<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+  <div class="navbar-header">
+    <button class="navbar-toggle" type="button" data-toggle="collapse" id="menu-toggler">
+      <span class="sr-only">Alterar navegação</span>
+      <span class="fa fa-bars"></span>
+    </button>
+    <a class="navbar-brand" href="<%= clients_url %>">
+      <%= image_tag 'logo-small-app.png' %>
+    </a>
+  </div>
+
+  <ul class="nav navbar-nav pull-right hidden-xs">
+    <li class="hidden-xs hidden-sm multisearch_box">
+      <% search_value = params[:multisearch].nil? ? '' : params[:multisearch][:m_query] %>
+      <%= form_for :multisearch, url: "#", method: "get" do |f| %>
+        <%= f.text_field :m_query, placeholder: "Buscar...", value: search_value, class: "search" %>
+      <% end %>
+    </li>
+
+    <li class="hidden-xs hidden-sm logger_user_name">
+      <%= link_to current_user.name, "#" %>
+    </li>
+
+    <li class="dropdown user_options">
+      <%= render "header_user" %>
+    </li>
+  </ul>
+</header>
+<!-- end navbar -->

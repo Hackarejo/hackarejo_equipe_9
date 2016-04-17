@@ -19,41 +19,33 @@
         android:gravity="bottom"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/lblUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="5dp"
-            android:text="@string/lblUser"
-            android:textColor="#FFFFFF" />
-
         <EditText
             android:id="@+id/txtUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/lblUser"
-            android:inputType="textEmailAddress" />
-
-        <TextView
-            android:id="@+id/lblPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/txtUser"
-            android:layout_marginTop="5dp"
-            android:text="@string/lblPassword"
-            android:textColor="#FFFFFF" />
+            android:inputType="textEmailAddress"
+            android:textColor="@color/textBlack"
+            android:hint="@string/lblUser"
+            android:textColorHint="@color/textBlack"
+            android:background="@drawable/border"
+            android:layout_marginBottom="5dp"
+            />
 
         <EditText
             android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/textBlack"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/lblPassword"
-            android:inputType="textPassword" />
 
+            android:layout_below="@+id/txtUser"
+            android:inputType="textPassword"
+            android:hint="@string/lblPassword"
+            android:background="@drawable/border"
+            android:textColorHint="@color/textBlack"
+            android:layout_marginBottom="5dp"
+            />
 
         <RelativeLayout
             android:id="@+id/LayoutFooter"
@@ -68,15 +60,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/buttonRegister"
+                android:background="@color/button"
+                android:textColor="@color/textWhite"
                 android:layout_alignParentRight="true"
                 android:text="@string/desc_login" />
 
             <Button
                 android:id="@+id/buttonRegister"
+                android:layout_marginTop="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="@+id/buttonLogin"
+                android:textColor="@color/textWhite"
                 android:layout_below="@+id/buttonLogin"
+                android:background="@color/button"
                 android:text="@string/desc_register" />
 
 

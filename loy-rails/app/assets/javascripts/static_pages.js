@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require turbolinks
 //= require_directory ./static_pages
 //= require_tree .

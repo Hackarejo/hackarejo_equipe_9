@@ -47,12 +47,14 @@ class Ability
   end
 
   def normal_user_permissions(user)
+    can :read, User
   end
 
   def client_user_permissions(user)
+    can :read, Shop
   end
 
   def manager_user_permissions(user)
-    can :read, Client, shop_id: user.userable.shop_id
+    can :read, Client
   end
 end

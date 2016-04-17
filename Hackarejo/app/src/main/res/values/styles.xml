@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <color name="button">#FFA800</color>
+    <color name="textWhite">#FFFFFF</color>
+    <color name="textBlack">#000000</color>
+    <color name="textGray">#333333</color>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
