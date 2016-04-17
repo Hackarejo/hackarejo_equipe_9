@@ -16,8 +16,6 @@ import io.github.hackarejo.equipe9.model.Shop;
 
 public class MyPromotionsFragment extends Fragment {
 
-    ListView listMyPromotions;
-
     public MyPromotionsFragment() {
     }
 
@@ -35,17 +33,5 @@ public class MyPromotionsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        listMyPromotions = (ListView) view.findViewById(R.id.my_promotions_list);
-        List<Shop> stores = new ArrayList<>();
-
-        Shop store = new Shop();
-        store.setName("LISTA DE PROMOÇÕES");
-
-        stores.add(store);
-
-        ListAdapter myPromotionsAdapter = new PromotionsAdapter(getActivity().getApplicationContext(), stores);
-
-        listMyPromotions.setAdapter(myPromotionsAdapter);
     }
 }
